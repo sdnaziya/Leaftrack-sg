@@ -1,0 +1,4 @@
+Approach: Full fine-tuning, lr=1e-5
+Train acc: 60.8%
+Val acc  : 9.0%
+Verdict: NOT LEARNING

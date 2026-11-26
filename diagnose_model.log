@@ -1,0 +1,84 @@
+c:\Users\AQSA\crop disease\LeafTrack-SG\diagnose_model.py:4: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+  Run: venv\Scripts\python.exe diagnose_model.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794466436.320173   22796 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794466439.558292   22796 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794466441.963972   22796 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+=================================================================
+LEAFTRACK-SG MODEL DIAGNOSIS
+=================================================================
+
+Class names (10 total):
+  [0] Pepper__bell___Bacterial_spot
+  [1] Pepper__bell___healthy
+  [2] Potato___Early_blight
+  [3] Potato___Late_blight
+  [4] Potato___healthy
+  [5] Tomato_Bacterial_spot
+  [6] Tomato_Early_blight
+  [7] Tomato_Late_blight
+  [8] Tomato_Leaf_Mold
+  [9] Tomato_Septoria_leaf_spot
+
+Loading model from: c:\Users\AQSA\crop disease\LeafTrack-SG\models\classifier\efficientnet_classifier.keras
+Model input shape: (None, 224, 224, 3)
+Model output shape: (None, 10)
+Model layers: 9
+
+--- Blank image test (should be near-uniform distribution) ---
+Blank image predictions: [5.78, 8.74, 5.11, 7.44, 0.89, 25.73, 6.44, 18.1, 7.86, 13.91]
+Top class on blank: [5] Tomato_Bacterial_spot
+
+--- Gray image test (0.5 normalized) ---
+Gray image predictions: [4.91, 7.92, 4.25, 6.97, 0.79, 30.31, 5.61, 18.25, 7.56, 13.43]
+Top class on gray: [5] Tomato_Bacterial_spot
+
+--- Random noise test ---
+Noise predictions: [18.26, 14.85, 23.93, 6.11, 1.18, 1.03, 12.43, 6.47, 3.9, 11.84]
+Top class on noise: [2] Potato___Early_blight
+
+--- Final dense layer weight statistics ---
+Layer 'dense_1': weight shape (512, 10), mean=-0.0022, std=0.0499, min=-0.1249, max=0.1194
+  Per-class weight norms: [1.075, 1.067, 1.177, 1.054, 1.387, 1.155, 1.135, 1.063, 1.102, 1.048]
+  Biases: [-0.001, 0.0025, 0.0013, 0.0005, -0.0119, 0.0002, -0.0006, 0.0007, -0.0022, 0.0023]
+
+--- Testing 5 uploaded image(s) ---
+
+  File: 291f1e6126a44e028d2a3665e4b111f3.jpg
+  Image stats: min=0.000 max=1.000 mean=0.426
+    [7] Tomato_Late_blight                            15.75%
+    [9] Tomato_Septoria_leaf_spot                     14.93%
+    [5] Tomato_Bacterial_spot                         14.03%
+
+  File: 69fa15ca2634450f88529ea513863adf.jpg
+  Image stats: min=0.000 max=1.000 mean=0.426
+    [7] Tomato_Late_blight                            15.75%
+    [9] Tomato_Septoria_leaf_spot                     14.93%
+    [5] Tomato_Bacterial_spot                         14.03%
+
+  File: 7964408190cd4cfab4b5c8c7bbaa4772.jpg
+  Image stats: min=0.000 max=1.000 mean=0.426
+    [7] Tomato_Late_blight                            15.75%
+    [9] Tomato_Septoria_leaf_spot                     14.93%
+    [5] Tomato_Bacterial_spot                         14.03%
+
+  File: 8dd95c4712e34fd6b55313895fa6b7ca.jpg
+  Image stats: min=0.000 max=1.000 mean=0.426
+    [7] Tomato_Late_blight                            15.75%
+    [9] Tomato_Septoria_leaf_spot                     14.93%
+    [5] Tomato_Bacterial_spot                         14.03%
+
+  File: 9942d75203104eb49bbf5745b67ad2ec.jpg
+  Image stats: min=0.000 max=1.000 mean=0.426
+    [7] Tomato_Late_blight                            15.75%
+    [9] Tomato_Septoria_leaf_spot                     14.93%
+    [5] Tomato_Bacterial_spot                         14.03%
+
+=================================================================
+Traceback (most recent call last):
+  File "c:\Users\AQSA\crop disease\LeafTrack-SG\diagnose_model.py", line 105, in <module>
+    with open(LOG, "w") as f:
+         ~~~~^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'c:\\Users\\AQSA\\crop disease\\LeafTrack-SG\\diagnose_model.log'

@@ -1,0 +1,47 @@
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794419549.188019   28696 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794419572.092238   28696 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+============================================================
+LEAFTRACK-SG STATE INSPECTION
+============================================================
+
+--- MODELS ---
+  Classifier model: EXISTS 35.3 MB
+    Path: c:\Users\AQSA\crop disease\LeafTrack-SG\models\classifier\efficientnet_classifier.keras
+  Class names JSON: EXISTS 0.0 MB
+    Path: c:\Users\AQSA\crop disease\LeafTrack-SG\models\classifier\class_names.json
+  Segmentation model: MISSING
+    Path: c:\Users\AQSA\crop disease\LeafTrack-SG\models\segmentation\unet_model.keras
+
+  class_names.json has 10 classes
+  First 5: ['Pepper__bell___Bacterial_spot', 'Pepper__bell___healthy', 'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy']
+
+--- DATASET ---
+  Class folders: 10
+  Total images: 12386
+  Sample classes: ['Pepper__bell___Bacterial_spot', 'Pepper__bell___healthy', 'Potato___Early_blight', 'Potato___Late_blight', 'Potato___healthy']
+
+--- TENSORFLOW / KERAS ---
+  TensorFlow: 2.22.0-rc0
+  Keras: 3.16.0.dev2026111103
+  EfficientNetB0: available
+
+--- SERVICE FILES ---
+  EXISTS: services/prediction.py
+  EXISTS: services/segmentation.py
+  EXISTS: services/severity.py
+  EXISTS: services/explainability.py
+  EXISTS: services/recommendations.py
+  EXISTS: services/report_generator.py
+
+--- ROUTE FILES ---
+  EXISTS: routes/prediction_routes.py
+  EXISTS: routes/history_routes.py
+
+============================================================
+Traceback (most recent call last):
+  File "c:\Users\AQSA\crop disease\LeafTrack-SG\inspect_state.py", line 81, in <module>
+    with open(os.path.join(BASE, "inspect_state.log"), "w") as f:
+         ~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'c:\\Users\\AQSA\\crop disease\\LeafTrack-SG\\inspect_state.log'

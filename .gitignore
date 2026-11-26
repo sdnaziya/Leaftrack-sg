@@ -1,0 +1,42 @@
+# Virtual environment
+venv/
+env/
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# Large dataset and zip files
+*.zip
+*.tar.gz
+data/plantvillage/
+data/plantdoc/
+data/_tfds_cache/
+data/segmentation/images/
+data/segmentation/masks/
+
+# Trained model weights (large binary — retrain on server)
+models/classifier/*.keras
+models/segmentation/*.keras
+
+# User uploads and reports
+uploads/
+reports/
+
+# Database
+database/leaftrack.db
+*.db
+
+# Log files
+*.log
+training_history.csv
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+*.bak
+*.tmp

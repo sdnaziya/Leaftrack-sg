@@ -1,0 +1,71 @@
+c:\Users\AQSA\crop disease\LeafTrack-SG\diagnose_model2.py:3: SyntaxWarning: "\S" is an invalid escape sequence. Such sequences will not work in the future. Did you mean "\\S"? A raw string is also an option.
+  Run: venv\Scripts\python.exe diagnose_model2.py
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794466514.311930   25436 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1794466517.658438   25436 port.cc:153] oneDNN custom operations are on. You may see slightly different numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+I0000 00:00:1794466520.007767   25436 cpu_feature_guard.cc:227] This TensorFlow binary is optimized to use available CPU instructions in performance-critical operations.
+To enable the following instructions: SSE3 SSE4.1 SSE4.2 AVX AVX2 AVX512F AVX512_VNNI AVX512_BF16 AVX_VNNI FMA, in other operations, rebuild TensorFlow with the appropriate compiler flags.
+=================================================================
+PREPROCESSING & IMAGE UNIQUENESS CHECK
+=================================================================
+
+Images in uploads/: 13
+
+--- Per-image pixel statistics ---
+  13fe1ff353954abfae94ab1aff489f   shape=(572, 800, 3) mean=90.5 hash=94826
+  291f1e6126a44e028d2a3665e4b111   shape=(1004, 1500, 3) mean=108.7 hash=93087
+  3736ae036fec4e518a5ceddfa7374c   shape=(572, 800, 3) mean=90.5 hash=94826
+  4e1e655ab7244a6bbee54c272fe779   shape=(572, 800, 3) mean=90.5 hash=94826
+  69fa15ca2634450f88529ea513863a   shape=(1004, 1500, 3) mean=108.7 hash=93087
+  7964408190cd4cfab4b5c8c7bbaa47   shape=(1004, 1500, 3) mean=108.7 hash=93087
+  8dd95c4712e34fd6b55313895fa6b7   shape=(1004, 1500, 3) mean=108.7 hash=93087
+  969fdfeb42664d69b6b21a798e4099   shape=(572, 800, 3) mean=90.5 hash=94826
+
+Unique images (by first-100-pixel hash): 2 / 8
+  !! DUPLICATE IMAGES DETECTED — this explains identical predictions !!
+
+--- PlantVillage dataset check ---
+  Dataset classes: 10
+  [  997] Pepper__bell___Bacterial_spot
+  [ 1478] Pepper__bell___healthy
+  [ 1000] Potato___Early_blight
+  [ 1000] Potato___Late_blight
+  [  152] Potato___healthy
+  [ 2127] Tomato_Bacterial_spot
+  [ 1000] Tomato_Early_blight
+  [ 1909] Tomato_Late_blight
+  [  952] Tomato_Leaf_Mold
+  [ 1771] Tomato_Septoria_leaf_spot
+
+--- Normalization check ---
+  Training uses: arr / 255.0  (EfficientNetB0 without built-in rescaling)
+  EfficientNetB0 built-in preprocessing expects: 0-255 range if using
+  tf.keras.applications.efficientnet.preprocess_input()
+  Current code: divides by 255 manually -> range [0,1]
+  This is INCONSISTENT if the model was built with preprocess_input.
+  Check training/train_classifier.py for how EfficientNetB0 was called.
+
+--- First layer output for a real image ---
+
+Model layers:
+  [0] input_layer_1 — InputLayer
+  [1] efficientnetb0 — Functional
+  [2] global_average_pooling2d — GlobalAveragePooling2D
+  [3] batch_normalization — BatchNormalization
+  [4] dropout — Dropout
+  [5] dense — Dense
+  [6] batch_normalization_1 — BatchNormalization
+  [7] dropout_1 — Dropout
+  [8] dense_1 — Dense
+
+Comparing first 2 images after resize:
+  13fe1ff353954abfae94ab1aff489f: orig=(800, 572) -> resized=(224,224) mean_after_resize=0.3548 top1=[2] 15.29%
+  291f1e6126a44e028d2a3665e4b111: orig=(1500, 1004) -> resized=(224,224) mean_after_resize=0.4263 top1=[7] 15.75%
+
+  Max prediction difference between img1 and img2: 0.088115
+Traceback (most recent call last):
+  File "c:\Users\AQSA\crop disease\LeafTrack-SG\diagnose_model2.py", line 105, in <module>
+    with open(LOG, "w") as f:
+         ~~~~^^^^^^^^^^
+PermissionError: [Errno 13] Permission denied: 'diagnose_model2.log'

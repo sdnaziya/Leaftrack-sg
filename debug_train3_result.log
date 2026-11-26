@@ -1,0 +1,4 @@
+Simple CNN (not EfficientNet)
+Train acc: 43.8%
+Val acc  : 51.7%
+Verdict: DATA IS LEARNABLE

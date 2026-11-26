@@ -1,0 +1,54 @@
+Model input  : (None, 224, 224, 3)
+Model output : (None, 10)
+Classes      : 10
+Model size   : 28.6 MB
+
+--- TEST: Blank (black) image ---
+   99.9%  Pepper__bell___Bacterial_spot
+    0.1%  Pepper__bell___healthy
+    0.0%  Potato___Early_blight
+
+--- TEST: Gray image (128,128,128) ---
+   80.6%  Tomato_Late_blight
+   17.7%  Tomato_Bacterial_spot
+    1.4%  Potato___Late_blight
+
+--- TEST: Green image (leaf-like) ---
+  100.0%  Pepper__bell___healthy
+    0.0%  Pepper__bell___Bacterial_spot
+    0.0%  Tomato_Early_blight
+
+--- TEST: Real uploaded images ---
+
+  04711e24f34441d68186e6be9adce675.webp
+  size=(474, 357) entropy=0%
+   99.9%  Pepper__bell___healthy
+    0.1%  Pepper__bell___Bacterial_spot
+    0.0%  Tomato_Early_blight
+
+  1360e984faf643c0b8354fcc64bb2df6.webp
+  size=(800, 572) entropy=0%
+  100.0%  Pepper__bell___Bacterial_spot
+    0.0%  Pepper__bell___healthy
+    0.0%  Tomato_Early_blight
+
+  19ce08a7d6b74e55a116e49f93d86a79.jpg
+  size=(1500, 1004) entropy=1%
+   99.8%  Pepper__bell___Bacterial_spot
+    0.2%  Pepper__bell___healthy
+    0.0%  Tomato_Early_blight
+
+--- TEST: One training image per class ---
+  ✗ TRUE:[0]Pepper__bell___Bacterial_spot       → PRED:[1]Pepper__bell___healthy              85.4%
+  ✓ TRUE:[1]Pepper__bell___healthy              → PRED:[1]Pepper__bell___healthy              91.4%
+  ✗ TRUE:[2]Potato___Early_blight               → PRED:[0]Pepper__bell___Bacterial_spot       79.3%
+  ✗ TRUE:[3]Potato___Late_blight                → PRED:[0]Pepper__bell___Bacterial_spot       99.7%
+  ✗ TRUE:[4]Potato___healthy                    → PRED:[1]Pepper__bell___healthy              50.1%
+  ✗ TRUE:[5]Tomato_Bacterial_spot               → PRED:[0]Pepper__bell___Bacterial_spot       91.2%
+  ✗ TRUE:[6]Tomato_Early_blight                 → PRED:[0]Pepper__bell___Bacterial_spot       89.8%
+  ✗ TRUE:[7]Tomato_Late_blight                  → PRED:[0]Pepper__bell___Bacterial_spot       99.9%
+  ✗ TRUE:[8]Tomato_Leaf_Mold                    → PRED:[0]Pepper__bell___Bacterial_spot       85.7%
+  ✗ TRUE:[9]Tomato_Septoria_leaf_spot           → PRED:[0]Pepper__bell___Bacterial_spot       95.1%
+
+  Per-class accuracy: 1/10 = 10%
+  ⚠ BELOW 50% — model is undertrained or preprocessing mismatch

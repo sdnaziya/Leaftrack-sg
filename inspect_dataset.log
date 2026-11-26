@@ -1,0 +1,41 @@
+=================================================================
+LEAFTRACK-SG DATASET + MODEL INSPECTION
+=================================================================
+
+--- CURRENT class_names.json ---
+  10 classes currently trained:
+  [ 0] Pepper__bell___Bacterial_spot
+  [ 1] Pepper__bell___healthy
+  [ 2] Potato___Early_blight
+  [ 3] Potato___Late_blight
+  [ 4] Potato___healthy
+  [ 5] Tomato_Bacterial_spot
+  [ 6] Tomato_Early_blight
+  [ 7] Tomato_Late_blight
+  [ 8] Tomato_Leaf_Mold
+  [ 9] Tomato_Septoria_leaf_spot
+
+--- CURRENT MODEL ---
+  EXISTS  28.7 MB  →  C:\Users\AQSA\crop disease\LeafTrack-SG\models\classifier\efficientnet_classifier.keras
+
+--- PLANTVILLAGE DATASET ---
+  10 class folders  |  12386 total images
+  3 unique crops:
+
+  Pepper__bell  (2475 images, 2 classes):
+      ✓ TRAINED  [  997]  Pepper__bell___Bacterial_spot
+      ✓ TRAINED  [ 1478]  Pepper__bell___healthy
+  Potato  (2152 images, 3 classes):
+      ✓ TRAINED  [ 1000]  Potato___Early_blight
+      ✓ TRAINED  [ 1000]  Potato___Late_blight
+      ✓ TRAINED  [  152]  Potato___healthy
+  Tomato  (7759 images, 5 classes):
+      ✓ TRAINED  [ 2127]  Tomato_Bacterial_spot
+      ✓ TRAINED  [ 1000]  Tomato_Early_blight
+      ✓ TRAINED  [ 1909]  Tomato_Late_blight
+      ✓ TRAINED  [  952]  Tomato_Leaf_Mold
+      ✓ TRAINED  [ 1771]  Tomato_Septoria_leaf_spot
+
+--- CLASSES IN DATASET BUT NOT TRAINED (0) ---
+
+=================================================================
